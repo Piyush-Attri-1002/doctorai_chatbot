@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DoctorAI Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef1f5;
+            padding: 30px;
+        }
+        .chatbox {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 70%;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbox">
+        <h2>🩺 DoctorAI Medical Chatbot</h2>
+
+        <form method="POST">
+            <input type="text" name="user_input" placeholder="Enter your symptoms..." required />
+            <input type="submit" value="Check Diagnosis" />
+        </form>
+
+        {% if user_input %}
+            <p><strong>You:</strong> {{ user_input }}</p>
+            <p><strong>Bot:</strong> {{ bot_response|safe }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
